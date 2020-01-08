@@ -1,3 +1,5 @@
+package com.example.cinema.cinemapz;
+
 public enum ErrorCode {
 
 	UNEXPECTED_ERROR,
