@@ -6,26 +6,29 @@ import org.springframework.http.HttpStatus;
 
 public class RestApiErrorAttributes {
 
-	private HttpStatus status;
-	private LocalDateTime timestamp = LocalDateTime.now();
+	private String status;
+	private String timestamp;
 	private String message;
 	private String debugMessage;
+
+	public RestApiErrorAttributes() {}
 
 	public RestApiErrorAttributes(HttpStatus status, Exception exception) {
 		this(status, ErrorCode.UNEXPECTED_ERROR.name(), exception);
 	}
 
 	public RestApiErrorAttributes(HttpStatus status, String message, Exception exception) {
-		this.status = status;
+		this.status = status.toString();
 		this.message = message;
 		this.debugMessage = exception.getLocalizedMessage();
+		this.timestamp = LocalDateTime.now().toString();
 	}
 
-	public HttpStatus getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public LocalDateTime getTimestamp() {
+	public String getTimestamp() {
 		return timestamp;
 	}
 
@@ -35,6 +38,12 @@ public class RestApiErrorAttributes {
 
 	public String getDebugMessage() {
 		return debugMessage;
+	}
+
+	@Override
+	public String toString() {
+		return "RestApiErrorAttributes{" + "status=" + status + ", timestamp=" + timestamp + ", message='" + message + '\''
+				+ ", debugMessage='" + debugMessage + '\'' + '}';
 	}
 
 }
