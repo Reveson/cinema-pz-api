@@ -8,6 +8,7 @@ public class MovieDto {
     private String description;
     private String age;
     private String duration;
+    private String imageUrl;
 
 
     public int getId() {
@@ -56,5 +57,13 @@ public class MovieDto {
 
     public void setDuration(String duration) {
         this.duration = duration;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

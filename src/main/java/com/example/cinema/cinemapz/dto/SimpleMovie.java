@@ -4,6 +4,9 @@ public class SimpleMovie {
 
 	private int id;
 	private String name;
+	private String imageUrl;
+
+	public SimpleMovie() {}
 
 	public SimpleMovie(int id, String name) {
 		this.id = id;
@@ -26,4 +29,11 @@ public class SimpleMovie {
 		this.name = name;
 	}
 
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 }
